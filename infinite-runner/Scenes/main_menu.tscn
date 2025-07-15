@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://d0h0jdyeyb1ev"]
+[gd_scene load_steps=2 format=3 uid="uid://d0h0jdyeyb1ev"]
+
+[ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="1_biw8p"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_biw8p")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -18,6 +21,7 @@ offset_top = 54.0
 offset_right = 244.0
 offset_bottom = 191.0
 grow_horizontal = 2
+theme = ExtResource("1_biw8p")
 theme_override_font_sizes/font_size = 100
 text = "VOID RUN"
 
@@ -34,5 +38,6 @@ offset_right = 64.5
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_biw8p")
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
