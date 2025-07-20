@@ -6,6 +6,7 @@ extends Camera2D
 
 
 @export var minLength : int
+@export var allowance : int
 var startPos : Vector2
 var curPos: Vector2
 var swiping = false
@@ -20,7 +21,8 @@ func _process(delta: float) -> void:
 		if swiping:
 			curPos = get_global_mouse_position()
 			if startPos.distance_to(curPos) >= minLength:
-				print("Swipe detected!")
+				if abs(startPos.x - curPos.x) <= allowance:
+					print("veritical swipe")
 				swiping = false
 	else:
 		swiping = false			

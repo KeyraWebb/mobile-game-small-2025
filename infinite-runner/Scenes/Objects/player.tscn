@@ -18,6 +18,7 @@ limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_p8o7k")
 minLength = 200
+allowance = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.42, 1)
