@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://c0j6fiiejc40k"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c0j6fiiejc40k"]
+
+[ext_resource type="FontFile" uid="uid://c1x620yd1raqo" path="res://Assets/Themes/Fonts/Protest_Revolution/ProtestRevolution-Regular.ttf" id="1_1jtem"]
 
 [resource]
+default_font = ExtResource("1_1jtem")
+Button/fonts/font = ExtResource("1_1jtem")
+Label/fonts/font = ExtResource("1_1jtem")

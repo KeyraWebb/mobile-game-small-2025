@@ -21,13 +21,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -243.0
-offset_top = 54.0
+offset_top = 83.0
 offset_right = 244.0
-offset_bottom = 191.0
+offset_bottom = 220.0
 grow_horizontal = 2
 theme = ExtResource("1_biw8p")
 theme_override_font_sizes/font_size = 100
 text = "VOID RUN"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
