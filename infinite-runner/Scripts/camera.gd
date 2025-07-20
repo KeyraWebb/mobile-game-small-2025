@@ -13,16 +13,25 @@ var swiping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	#start of swipe
 	if Input.is_action_just_pressed("Interact"):
 		if !swiping:
 			swiping = true
 			startPos = get_global_mouse_position()
+	
+	#swipe follow through		
 	if Input.is_action_pressed("Interact"):
 		if swiping:
 			curPos = get_global_mouse_position()
-			if startPos.distance_to(curPos) >= minLength:
-				if abs(startPos.x - curPos.x) <= allowance:
-					print("veritical swipe")
+			if startPos.distance_to(curPos) >= minLength: #check if swipe is long enough to be a swipe
+				if abs(startPos.x - curPos.x) <= allowance: #check if swipe is within range to be vertical
+					if startPos.y - curPos.y > 0:
+						print("swipe up")
+					else: 
+						print("swipe down")
 				swiping = false
+	
+	#end swipe if conditions not met
 	else:
 		swiping = false			
