@@ -10,6 +10,8 @@ extends Camera2D
 var startPos : Vector2
 var curPos: Vector2
 var swiping = false
+signal swipeUp
+signal swipeDown
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,10 +28,10 @@ func _process(delta: float) -> void:
 			curPos = get_global_mouse_position()
 			if startPos.distance_to(curPos) >= minLength: #check if swipe is long enough to be a swipe
 				if abs(startPos.x - curPos.x) <= allowance: #check if swipe is within range to be vertical
-					if startPos.y - curPos.y > 0:
-						print("swipe up")
+					if startPos.y - curPos.y > 0: # what direction?
+						swipeUp.emit()
 					else: 
-						print("swipe down")
+						swipeDown.emit()
 				swiping = false
 	
 	#end swipe if conditions not met
