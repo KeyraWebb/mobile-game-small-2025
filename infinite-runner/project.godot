@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Infinite Runner"
+config/name="void-run"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
@@ -36,3 +36,4 @@ Interact={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
