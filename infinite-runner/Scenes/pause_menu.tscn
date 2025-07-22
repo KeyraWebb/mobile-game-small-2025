@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dskyo4s7mytui"]
+[gd_scene load_steps=4 format=3 uid="uid://dskyo4s7mytui"]
 
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="1_f8dep"]
-[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="2_v6fvh"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_v6fvh"]
+[ext_resource type="PackedScene" uid="uid://d0h0jdyeyb1ev" path="res://Scenes/main_menu.tscn" id="3_h8yls"]
 
 [node name="PauseMenu" type="PanelContainer"]
 process_mode = 3
@@ -19,6 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f8dep")
 script = ExtResource("2_v6fvh")
+mainMenu = ExtResource("3_h8yls")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -37,3 +39,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
 text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

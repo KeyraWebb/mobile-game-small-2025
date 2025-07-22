@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ewaavyv5v1nx" path="res://Assets/Images/Tree midground.png" id="2_14ffb"]
 [ext_resource type="Texture2D" uid="uid://cv0sk34i3ld3d" path="res://Assets/Images/VoidGrass.png" id="3_6yeml"]
 [ext_resource type="Texture2D" uid="uid://di76lu3eh2sl1" path="res://icon.svg" id="5_2xyo5"]
-[ext_resource type="PackedScene" uid="uid://dskyo4s7mytui" path="res://Scripts/pause_menu.tscn" id="6_wynk3"]
+[ext_resource type="PackedScene" uid="uid://dskyo4s7mytui" path="res://Scenes/pause_menu.tscn" id="6_wynk3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
