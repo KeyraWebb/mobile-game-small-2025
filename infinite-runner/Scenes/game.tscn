@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=11 format=3 uid="uid://b6p0ch7meljjh"]
 
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
 [ext_resource type="PackedScene" uid="uid://bsdpfv0ogayj8" path="res://Scenes/Objects/player.tscn" id="1_qt0gu"]
 [ext_resource type="Texture2D" uid="uid://ewaavyv5v1nx" path="res://Assets/Images/Tree midground.png" id="2_14ffb"]
 [ext_resource type="Texture2D" uid="uid://cv0sk34i3ld3d" path="res://Assets/Images/VoidGrass.png" id="3_6yeml"]
-[ext_resource type="Texture2D" uid="uid://di76lu3eh2sl1" path="res://icon.svg" id="5_2xyo5"]
+[ext_resource type="Texture2D" uid="uid://w84giaaydbxi" path="res://Assets/Images/Menu button.png" id="5_o4kq2"]
+[ext_resource type="Texture2D" uid="uid://cj5p5jkfx4q42" path="res://Assets/Images/Menu button pressed.png" id="6_o46jq"]
 [ext_resource type="PackedScene" uid="uid://dskyo4s7mytui" path="res://Scenes/pause_menu.tscn" id="6_wynk3"]
+[ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="8_aylbi"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
@@ -44,6 +46,7 @@ texture = ExtResource("3_6yeml")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_qt0gu")]
+position = Vector2(112, 421)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(833, 514)
@@ -58,10 +61,19 @@ layer = 60
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(1191, 20)
 scale = Vector2(0.525, 0.525)
-texture_normal = ExtResource("5_2xyo5")
-texture_pressed = ExtResource("5_2xyo5")
+texture_normal = ExtResource("5_o4kq2")
+texture_pressed = ExtResource("6_o46jq")
 shape = SubResource("RectangleShape2D_6ymad")
 action = "Pause"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_wynk3")]
 visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 30.0
+offset_top = 27.0
+offset_right = 350.0
+offset_bottom = 76.0
+theme = ExtResource("8_aylbi")
+theme_override_font_sizes/font_size = 40
+text = "Score: 00000000"

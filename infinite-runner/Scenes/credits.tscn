@@ -54,7 +54,7 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="PanelContainer/BoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Brush Packs used to help make assets - "
+text = "Brush Packs used to help make assets - Devin Elle Kurtz"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/BoxContainer"]
