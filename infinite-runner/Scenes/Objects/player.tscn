@@ -17,7 +17,7 @@ position = Vector2(465, -4)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_p8o7k")
-minLength = 200
+minLength = 100
 allowance = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

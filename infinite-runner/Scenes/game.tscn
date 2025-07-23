@@ -53,7 +53,7 @@ centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_qt0gu")]
 position = Vector2(112, 436.934)
-JUMP_VELOCITY = -500.0
+JUMP_VELOCITY = -600.0
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(833, 514)
@@ -89,6 +89,7 @@ text = "Score: 00000000"
 script = ExtResource("9_x4fcm")
 
 [node name="SpawnTimer" type="Timer" parent="Obstacles"]
+wait_time = 2.0
 autostart = true
 
 [node name="Obstacle spawner" type="Node2D" parent="Obstacles"]
