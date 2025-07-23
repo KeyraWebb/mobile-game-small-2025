@@ -2,7 +2,7 @@ extends Node2D
 
 @export var frequency : int
 @onready var obstacleHolder = $"../../Obstacle holder"
-@onready var spawnTimer = $"../../Timer"
+@onready var spawnTimer = $"../SpawnTimer"
 var spawnPoints : Array
 var timeElapsed
 

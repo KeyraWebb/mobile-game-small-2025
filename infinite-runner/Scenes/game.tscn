@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=16 format=3 uid="uid://b6p0ch7meljjh"]
 
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
 [ext_resource type="PackedScene" uid="uid://bsdpfv0ogayj8" path="res://Scenes/Objects/player.tscn" id="1_qt0gu"]
@@ -11,13 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://cj5p5jkfx4q42" path="res://Assets/Images/Menu button pressed.png" id="6_o46jq"]
 [ext_resource type="PackedScene" uid="uid://dskyo4s7mytui" path="res://Scenes/pause_menu.tscn" id="6_wynk3"]
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="8_aylbi"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa3wp"]
+[ext_resource type="Script" path="res://Scripts/obstacles_movement.gd" id="9_x4fcm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ymad"]
 size = Vector2(130, 130)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa3wp"]
 
 [node name="Game" type="Node2D"]
 
@@ -54,34 +55,6 @@ centered = false
 position = Vector2(112, 436.934)
 JUMP_VELOCITY = -500.0
 
-[node name="Obstacle spawner" type="Node2D" parent="Player"]
-position = Vector2(1546, 35.066)
-script = ExtResource("5_gvbm6")
-
-[node name="Spawn bottom" type="Node2D" parent="Player/Obstacle spawner"]
-position = Vector2(0, -19)
-script = ExtResource("6_g842l")
-obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
-
-[node name="Spawn Middle" type="Node2D" parent="Player/Obstacle spawner"]
-position = Vector2(0, -95)
-script = ExtResource("6_g842l")
-obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
-
-[node name="Spawn Top" type="Node2D" parent="Player/Obstacle spawner"]
-position = Vector2(0, -173)
-script = ExtResource("6_g842l")
-obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
-
-[node name="Despawn Zone" type="Area2D" parent="Player"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Despawn Zone"]
-position = Vector2(-457, -4)
-rotation = 1.57079
-shape = SubResource("WorldBoundaryShape2D_pa3wp")
-
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(833, 514)
 
@@ -112,10 +85,42 @@ theme = ExtResource("8_aylbi")
 theme_override_font_sizes/font_size = 40
 text = "Score: 00000000"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource("9_x4fcm")
+
+[node name="SpawnTimer" type="Timer" parent="Obstacles"]
 autostart = true
+
+[node name="Obstacle spawner" type="Node2D" parent="Obstacles"]
+position = Vector2(1658, 472)
+script = ExtResource("5_gvbm6")
+
+[node name="Spawn bottom" type="Node2D" parent="Obstacles/Obstacle spawner"]
+position = Vector2(0, -19)
+script = ExtResource("6_g842l")
+obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
+
+[node name="Spawn Middle" type="Node2D" parent="Obstacles/Obstacle spawner"]
+position = Vector2(0, -95)
+script = ExtResource("6_g842l")
+obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
+
+[node name="Spawn Top" type="Node2D" parent="Obstacles/Obstacle spawner"]
+position = Vector2(0, -173)
+script = ExtResource("6_g842l")
+obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
+
+[node name="Despawn Zone" type="Area2D" parent="Obstacles"]
+position = Vector2(112, 436.934)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Despawn Zone"]
+position = Vector2(-457, -4)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_pa3wp")
 
 [node name="Obstacle holder" type="Node2D" parent="."]
 
-[connection signal="area_entered" from="Player/Despawn Zone" to="Player/Obstacle spawner" method="_on_despawn_zone_area_entered"]
-[connection signal="timeout" from="Timer" to="Player/Obstacle spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Obstacles/SpawnTimer" to="Obstacles/Obstacle spawner" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Obstacles/Despawn Zone" to="Obstacles/Obstacle spawner" method="_on_despawn_zone_area_entered"]
