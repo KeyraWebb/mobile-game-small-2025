@@ -14,4 +14,8 @@ func _on_timer_timeout() -> void:
 	var select = randi_range(0, spawnPoints.size() - 1)
 	spawnPoints[select].spawn(obstacleHolder)
 	spawnTimer.start(1)
-	print("spawn")
+
+func _on_despawn_zone_area_entered(area: Area2D) -> void:
+	print("despawn")
+	area.queue_free()
+	

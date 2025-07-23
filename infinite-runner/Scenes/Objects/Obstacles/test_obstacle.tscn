@@ -6,6 +6,7 @@
 size = Vector2(73, 76)
 
 [node name="Test Obstacle" type="Area2D"]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.61, 0.61)

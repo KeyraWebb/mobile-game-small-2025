@@ -52,9 +52,10 @@ centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_qt0gu")]
 position = Vector2(112, 436.934)
+JUMP_VELOCITY = -500.0
 
 [node name="Obstacle spawner" type="Node2D" parent="Player"]
-position = Vector2(3196, 35.066)
+position = Vector2(1546, 35.066)
 script = ExtResource("5_gvbm6")
 
 [node name="Spawn bottom" type="Node2D" parent="Player/Obstacle spawner"]
@@ -72,11 +73,11 @@ position = Vector2(0, -173)
 script = ExtResource("6_g842l")
 obstacles = Array[PackedScene]([ExtResource("6_kcgt3")])
 
-[node name="Despawn Zone2" type="Area2D" parent="Player"]
-collision_layer = 2
+[node name="Despawn Zone" type="Area2D" parent="Player"]
+collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Despawn Zone2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Despawn Zone"]
 position = Vector2(-457, -4)
 rotation = 1.57079
 shape = SubResource("WorldBoundaryShape2D_pa3wp")
@@ -116,4 +117,5 @@ autostart = true
 
 [node name="Obstacle holder" type="Node2D" parent="."]
 
+[connection signal="area_entered" from="Player/Despawn Zone" to="Player/Obstacle spawner" method="_on_despawn_zone_area_entered"]
 [connection signal="timeout" from="Timer" to="Player/Obstacle spawner" method="_on_timer_timeout"]
