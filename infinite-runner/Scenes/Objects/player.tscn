@@ -20,9 +20,21 @@ script = ExtResource("2_p8o7k")
 minLength = 100
 allowance = 50
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Upright Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.42, 1)
 texture = ExtResource("2_ophkl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Slide Sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 37)
+rotation = -1.57079
+scale = Vector2(0.42, 1)
+texture = ExtResource("2_ophkl")
+
+[node name="Jump Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_e3hpu")
+
+[node name="Slide Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 36)
+rotation = 1.57079
 shape = SubResource("CapsuleShape2D_e3hpu")
