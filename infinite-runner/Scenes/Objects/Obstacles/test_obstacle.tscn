@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjq4elub54aic"]
+[gd_scene load_steps=4 format=3 uid="uid://bjq4elub54aic"]
 
 [ext_resource type="Texture2D" uid="uid://di76lu3eh2sl1" path="res://icon.svg" id="1_0is8x"]
+[ext_resource type="Script" uid="uid://dfu30q5m215xq" path="res://Scripts/obstacle.gd" id="1_puvap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0jp3"]
 size = Vector2(73, 76)
 
 [node name="Test Obstacle" type="Area2D"]
 collision_layer = 2
+script = ExtResource("1_puvap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.61, 0.61)
@@ -15,3 +17,5 @@ texture = ExtResource("1_0is8x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_a0jp3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

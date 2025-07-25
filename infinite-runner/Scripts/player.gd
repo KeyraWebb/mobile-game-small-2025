@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 @onready var uprightSprite = $"Upright Sprite"
 @onready var slideSprite = $"Slide Sprite"
+@onready var gameOver = $"../CanvasLayer/Game Over"
 var sliding = false
 var currentSlide = 0
 
@@ -30,7 +31,6 @@ func _physics_process(delta: float) -> void:
 			currentSlide = currentSlide - delta
 		else:
 			DisableSlide()
-			
 	
 	#infinite run
 	#TODO: make speed up over time for difficulty
@@ -65,4 +65,5 @@ func DisableSlide():
 	uprightSprite.visible = true
 	slideSprite.visible = false
 	
-	
+func Hit():
+	gameOver.gameOver()

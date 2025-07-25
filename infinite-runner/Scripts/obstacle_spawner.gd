@@ -16,6 +16,5 @@ func _on_timer_timeout() -> void:
 	spawnTimer.start(2)
 
 func _on_despawn_zone_area_entered(area: Area2D) -> void:
-	print("despawn")
 	area.queue_free()
 	

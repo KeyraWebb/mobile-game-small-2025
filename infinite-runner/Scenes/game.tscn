@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=17 format=3 uid="uid://b6p0ch7meljjh"]
 
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
 [ext_resource type="PackedScene" uid="uid://bsdpfv0ogayj8" path="res://Scenes/Objects/player.tscn" id="1_qt0gu"]
 [ext_resource type="Texture2D" uid="uid://ewaavyv5v1nx" path="res://Assets/Images/Tree midground.png" id="2_14ffb"]
 [ext_resource type="Texture2D" uid="uid://cv0sk34i3ld3d" path="res://Assets/Images/VoidGrass.png" id="3_6yeml"]
-[ext_resource type="Script" path="res://Scripts/obstacle_spawner.gd" id="5_gvbm6"]
+[ext_resource type="Script" uid="uid://b3v78s50qmsuh" path="res://Scripts/obstacle_spawner.gd" id="5_gvbm6"]
 [ext_resource type="Texture2D" uid="uid://w84giaaydbxi" path="res://Assets/Images/Menu button.png" id="5_o4kq2"]
-[ext_resource type="Script" path="res://Scripts/spawn_point.gd" id="6_g842l"]
+[ext_resource type="Script" uid="uid://c3w5fi0km4nuv" path="res://Scripts/spawn_point.gd" id="6_g842l"]
 [ext_resource type="PackedScene" uid="uid://bjq4elub54aic" path="res://Scenes/Objects/Obstacles/test_obstacle.tscn" id="6_kcgt3"]
 [ext_resource type="Texture2D" uid="uid://cj5p5jkfx4q42" path="res://Assets/Images/Menu button pressed.png" id="6_o46jq"]
 [ext_resource type="PackedScene" uid="uid://dskyo4s7mytui" path="res://Scenes/pause_menu.tscn" id="6_wynk3"]
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="8_aylbi"]
-[ext_resource type="Script" path="res://Scripts/obstacles_movement.gd" id="9_x4fcm"]
+[ext_resource type="PackedScene" uid="uid://bgsbbv547qjkm" path="res://Scenes/game_over.tscn" id="8_rfjv2"]
+[ext_resource type="Script" uid="uid://dqhohauqhayev" path="res://Scripts/obstacles_movement.gd" id="9_x4fcm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
@@ -74,6 +75,9 @@ shape = SubResource("RectangleShape2D_6ymad")
 action = "Pause"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_wynk3")]
+visible = false
+
+[node name="Game Over" parent="CanvasLayer" instance=ExtResource("8_rfjv2")]
 visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
