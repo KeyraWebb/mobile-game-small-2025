@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var INITIAL_SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var slideLength = 0.5
+@export var speedModifier = 1
 
 @onready var jumpCollider = $"Jump Collider"
 @onready var slideCollider = $"Slide Collider"
@@ -13,6 +14,7 @@ extends CharacterBody2D
 @onready var gameOver = $"../CanvasLayer/Game Over"
 var sliding = false
 var currentSlide = 0
+var currentSpeed
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Up"):
@@ -25,6 +27,7 @@ func _ready() -> void:
 	camera.swipeDown.connect(_on_swipedown.bind())
 	slideCollider.disabled = true
 	jumpCollider.disabled = false
+	currentSpeed = INITIAL_SPEED
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -38,8 +41,8 @@ func _physics_process(delta: float) -> void:
 			DisableSlide()
 	
 	#infinite run
-	#TODO: make speed up over time for difficulty
-	velocity.x = 1 * INITIAL_SPEED
+	velocity.x = 1 * currentSpeed
+	currentSpeed += delta * speedModifier
 
 	move_and_slide()
 

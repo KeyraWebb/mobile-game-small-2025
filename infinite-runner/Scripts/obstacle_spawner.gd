@@ -1,21 +1,30 @@
 extends Node2D
 
 @export var frequency : int
+@export var initSpawn = 5
+
 @onready var obstacleHolder = $"../../Obstacle holder"
 @onready var spawnTimer = $"../SpawnTimer"
+
 var spawnPoints : Array
 var timeElapsed
+var spawnCount
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawnPoints = get_children()
-	_on_timer_timeout()
+	spawnCount = initSpawn
+	Spawn()
 
-func _on_timer_timeout() -> void:
+func Spawn() -> void:
 	var select = randi_range(0, spawnPoints.size() - 1)
 	spawnPoints[select].spawn(obstacleHolder)
-	spawnTimer.start(frequency)
+	if spawnCount >= 0:
+		spawnTimer.start(frequency)
+		spawnCount -= 1
+	print("spawn")
 
 func _on_despawn_zone_area_entered(area: Area2D) -> void:
 	area.queue_free()
+	Spawn()
 	

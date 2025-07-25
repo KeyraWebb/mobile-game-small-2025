@@ -108,12 +108,14 @@ action = "Down"
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("9_x4fcm")
 
-[node name="SpawnTimer" type="Timer" parent="Obstacles" groups=["Persist"]]
-wait_time = 2.0
+[node name="SpawnTimer" type="Timer" parent="Obstacles"]
+one_shot = true
 
 [node name="Obstacle spawner" type="Node2D" parent="Obstacles"]
 position = Vector2(1318, 472)
 script = ExtResource("5_gvbm6")
+frequency = 2
+initSpawn = 1
 
 [node name="Spawn bottom" type="Node2D" parent="Obstacles/Obstacle spawner"]
 position = Vector2(0, -19)
@@ -142,5 +144,5 @@ shape = SubResource("WorldBoundaryShape2D_pa3wp")
 
 [node name="Obstacle holder" type="Node2D" parent="."]
 
-[connection signal="timeout" from="Obstacles/SpawnTimer" to="Obstacles/Obstacle spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Obstacles/SpawnTimer" to="Obstacles/Obstacle spawner" method="Spawn"]
 [connection signal="area_entered" from="Obstacles/Despawn Zone" to="Obstacles/Obstacle spawner" method="_on_despawn_zone_area_entered"]
