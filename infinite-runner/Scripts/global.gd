@@ -26,9 +26,7 @@ func loadGame():
 	
 	#if no save is found, create a new one with defaults
 	if not FileAccess.file_exists("user://savegame.save"):
-		HighScore = 0
-		AccessMode = false
-		saveGame()
+		Reset()
 		return
 	
 	#open file
@@ -55,4 +53,10 @@ func loadGame():
 				if i == "global":
 					continue
 				self.set(i, node_data[i])
+				
+func Reset():
+	HighScore = 0
+	AccessMode = false
+	saveGame()
+	
 		
