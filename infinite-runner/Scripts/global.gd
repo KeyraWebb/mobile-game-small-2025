@@ -1,14 +1,17 @@
+## used a tut to help me with saving and loading
 ## @tutorial: https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
 
 extends Node
 
 var HighScore : int
+var AccessMode : bool
 
 #gets all relevant global data and puts it into json for saving
 func saveGlobal():
 	var saveDict = {
 		"global" : true,
-		"HighScore" : HighScore
+		"HighScore" : HighScore,
+		"AccessMode" : AccessMode
 	}
 	return saveDict
 
@@ -24,6 +27,7 @@ func loadGame():
 	#if no save is found, create a new one with defaults
 	if not FileAccess.file_exists("user://savegame.save"):
 		HighScore = 0
+		AccessMode = false
 		saveGame()
 		return
 	

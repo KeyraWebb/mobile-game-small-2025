@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0h0jdyeyb1ev"]
+[gd_scene load_steps=6 format=3 uid="uid://d0h0jdyeyb1ev"]
 
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="1_biw8p"]
 [ext_resource type="Script" uid="uid://bf1il0ofnpgys" path="res://Scripts/main_menu.gd" id="2_bwvpm"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="4_rbu5c"]
+[ext_resource type="PackedScene" uid="uid://bx3hlb8ooywkt" path="res://Scenes/settings.tscn" id="5_n45e2"]
 [ext_resource type="PackedScene" uid="uid://ksibfqaog74i" path="res://Scenes/credits.tscn" id="5_vbea3"]
 
 [node name="Main Menu" type="Control"]
@@ -67,9 +68,24 @@ theme_override_font_sizes/font_size = 70
 text = "Credits
 "
 
+[node name="Settings Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 615.0
+offset_right = 1208.0
+offset_bottom = 672.0
+theme_override_font_sizes/font_size = 40
+text = "Settings
+"
+
 [node name="Credits" parent="." instance=ExtResource("5_vbea3")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." instance=ExtResource("5_n45e2")]
 visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Settings Button" to="." method="_on_settings_button_pressed"]

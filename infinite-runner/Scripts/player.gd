@@ -14,6 +14,11 @@ extends CharacterBody2D
 var sliding = false
 var currentSlide = 0
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Up"):
+		_on_swipeup()
+	if Input.is_action_just_pressed("Down"):
+		_on_swipedown()
 
 func _ready() -> void:
 	camera.swipeUp.connect(_on_swipeup.bind())

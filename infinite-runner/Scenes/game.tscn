@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=20 format=3 uid="uid://b6p0ch7meljjh"]
 
 [ext_resource type="Script" uid="uid://bnfaugfm3ko2u" path="res://Scripts/gameManager.gd" id="1_1phco"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
@@ -14,6 +14,8 @@
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="8_aylbi"]
 [ext_resource type="PackedScene" uid="uid://bgsbbv547qjkm" path="res://Scenes/game_over.tscn" id="8_rfjv2"]
 [ext_resource type="Script" uid="uid://dqhohauqhayev" path="res://Scripts/obstacles_movement.gd" id="9_x4fcm"]
+[ext_resource type="Texture2D" uid="uid://bp5f5g4p0u5rs" path="res://Assets/Images/up arrow.png" id="11_nb51f"]
+[ext_resource type="Texture2D" uid="uid://usdh44innev2" path="res://Assets/Images/down arrow.png" id="12_nnt18"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
@@ -68,7 +70,7 @@ shape = SubResource("WorldBoundaryShape2D_eoas8")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 60
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="MenuButton" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(1191, 20)
 scale = Vector2(0.525, 0.525)
 texture_normal = ExtResource("5_o4kq2")
@@ -90,6 +92,18 @@ offset_bottom = 76.0
 theme = ExtResource("8_aylbi")
 theme_override_font_sizes/font_size = 40
 text = "Score: 00000000"
+
+[node name="Up Button" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2(1129, 413)
+texture_normal = ExtResource("11_nb51f")
+action = "Up"
+
+[node name="Down Button" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2(1129, 554)
+texture_normal = ExtResource("12_nnt18")
+action = "Down"
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("9_x4fcm")
