@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var INITIAL_SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
-@export var slideLength = 300
+@export var slideLength = 0.5
 
 @onready var jumpCollider = $"Jump Collider"
 @onready var slideCollider = $"Slide Collider"
@@ -23,15 +23,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		if sliding: #terminate slide
-			DisableSlide()
 		velocity += get_gravity() * delta
 	
 	if sliding: #slide handling
 		if currentSlide > 0:
-			currentSlide - delta
+			currentSlide = currentSlide - delta
 		else:
 			DisableSlide()
+			
 	
 	#infinite run
 	#TODO: make speed up over time for difficulty
@@ -42,6 +41,8 @@ func _physics_process(delta: float) -> void:
 func _on_swipeup():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		if sliding: #terminate slide
+			DisableSlide()
 		
 func _on_swipedown():
 	velocity.y = -1 * JUMP_VELOCITY

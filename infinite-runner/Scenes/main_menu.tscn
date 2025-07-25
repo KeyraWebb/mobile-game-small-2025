@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0h0jdyeyb1ev"]
 
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="1_biw8p"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="2_bwvpm"]
+[ext_resource type="Script" uid="uid://bf1il0ofnpgys" path="res://Scripts/main_menu.gd" id="2_bwvpm"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="4_rbu5c"]
 [ext_resource type="PackedScene" uid="uid://ksibfqaog74i" path="res://Scenes/credits.tscn" id="5_vbea3"]
 
