@@ -10,7 +10,6 @@ func saveGlobal():
 		"global" : true,
 		"HighScore" : HighScore
 	}
-	print(saveDict)
 	return saveDict
 
 func saveGame():
@@ -18,7 +17,6 @@ func saveGame():
 	var data = saveGlobal()
 	var json_string = JSON.stringify(data)
 	save_file.store_line(json_string)
-	print(HighScore)
 	
 	
 func loadGame():
@@ -53,6 +51,4 @@ func loadGame():
 				if i == "global":
 					continue
 				self.set(i, node_data[i])
-		
-	print(HighScore)
 		
