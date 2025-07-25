@@ -1,6 +1,10 @@
 extends PanelContainer
 
+@onready var gameManager = $"../.."
+@onready var finalScoreLabel = $"VBoxContainer/Final Score"
+
 func gameOver():
+	finalScoreLabel.text = "Final score: %.0f" % gameManager.score
 	get_tree().paused = true
 	self.visible = true
 

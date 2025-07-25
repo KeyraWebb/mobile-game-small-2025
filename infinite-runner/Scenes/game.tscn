@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=18 format=3 uid="uid://b6p0ch7meljjh"]
 
+[ext_resource type="Script" uid="uid://bnfaugfm3ko2u" path="res://Scripts/gameManager.gd" id="1_1phco"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
 [ext_resource type="PackedScene" uid="uid://bsdpfv0ogayj8" path="res://Scenes/Objects/player.tscn" id="1_qt0gu"]
 [ext_resource type="Texture2D" uid="uid://ewaavyv5v1nx" path="res://Assets/Images/Tree midground.png" id="2_14ffb"]
@@ -22,6 +23,7 @@ size = Vector2(130, 130)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa3wp"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_1phco")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 follow_viewport_scale = 0.0
@@ -80,7 +82,7 @@ visible = false
 [node name="Game Over" parent="CanvasLayer" instance=ExtResource("8_rfjv2")]
 visible = false
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Score" type="Label" parent="CanvasLayer"]
 offset_left = 30.0
 offset_top = 27.0
 offset_right = 350.0
@@ -94,10 +96,9 @@ script = ExtResource("9_x4fcm")
 
 [node name="SpawnTimer" type="Timer" parent="Obstacles"]
 wait_time = 2.0
-autostart = true
 
 [node name="Obstacle spawner" type="Node2D" parent="Obstacles"]
-position = Vector2(1658, 472)
+position = Vector2(1318, 472)
 script = ExtResource("5_gvbm6")
 
 [node name="Spawn bottom" type="Node2D" parent="Obstacles/Obstacle spawner"]
