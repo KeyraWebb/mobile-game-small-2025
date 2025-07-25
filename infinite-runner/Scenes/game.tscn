@@ -94,7 +94,7 @@ text = "Score: 00000000"
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("9_x4fcm")
 
-[node name="SpawnTimer" type="Timer" parent="Obstacles"]
+[node name="SpawnTimer" type="Timer" parent="Obstacles" groups=["Persist"]]
 wait_time = 2.0
 
 [node name="Obstacle spawner" type="Node2D" parent="Obstacles"]
