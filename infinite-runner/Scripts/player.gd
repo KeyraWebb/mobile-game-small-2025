@@ -16,6 +16,8 @@ var sliding = false
 var currentSlide = 0
 var currentSpeed
 
+var jumping = false
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Up"):
 		_on_swipeup()
@@ -40,6 +42,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			DisableSlide()
 	
+	if uprightSprite.animation == "Fall" && jumping && is_on_floor():
+		uprightSprite.play("Walk")
+		jumping = false
+		
 	#infinite run
 	velocity.x = 1 * currentSpeed
 	currentSpeed += delta * speedModifier
@@ -49,6 +55,11 @@ func _physics_process(delta: float) -> void:
 func _on_swipeup():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+		#animation control
+		jumping = true		
+		uprightSprite.play("Jump")
+		
 		if sliding: #terminate slide
 			DisableSlide()
 		
@@ -72,6 +83,11 @@ func DisableSlide():
 	jumpCollider.disabled = false
 	uprightSprite.visible = true
 	slideSprite.visible = false
+	uprightSprite.play("Walk")
 	
 func Hit():
 	gameOver.gameOver()
+
+func _on_upright_sprite_animation_finished() -> void:
+	if uprightSprite.animation == "Jump":
+		uprightSprite.play("Fall")

@@ -22,7 +22,6 @@ func Spawn() -> void:
 	if spawnCount >= 0:
 		spawnTimer.start(frequency)
 		spawnCount -= 1
-	print("spawn")
 
 func _on_despawn_zone_area_entered(area: Area2D) -> void:
 	area.queue_free()

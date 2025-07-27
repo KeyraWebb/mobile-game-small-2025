@@ -57,6 +57,12 @@ theme_override_font_sizes/font_size = 30
 text = "Brush Packs used to help make assets - Devin Elle Kurtz"
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="PanelContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Player character asset - RedMars on itch.io"
+horizontal_alignment = 1
+
 [node name="Button" type="Button" parent="PanelContainer/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
