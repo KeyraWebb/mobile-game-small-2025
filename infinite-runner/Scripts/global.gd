@@ -5,13 +5,15 @@ extends Node
 
 var HighScore : int
 var AccessMode : bool
+var FirstTime : bool
 
 #gets all relevant global data and puts it into json for saving
 func saveGlobal():
 	var saveDict = {
 		"global" : true,
 		"HighScore" : HighScore,
-		"AccessMode" : AccessMode
+		"AccessMode" : AccessMode,
+		"FirstTime" : FirstTime
 	}
 	return saveDict
 
@@ -57,6 +59,7 @@ func loadGame():
 func Reset():
 	HighScore = 0
 	AccessMode = false
+	FirstTime = true
 	saveGame()
 	
 		

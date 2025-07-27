@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjq4elub54aic"]
 
-[ext_resource type="Texture2D" uid="uid://di76lu3eh2sl1" path="res://icon.svg" id="1_0is8x"]
 [ext_resource type="Script" uid="uid://dfu30q5m215xq" path="res://Scripts/obstacle.gd" id="1_puvap"]
+[ext_resource type="Texture2D" uid="uid://7aumpd08lmoc" path="res://Assets/Images/Obstacles/rock_01.png" id="2_puvap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0jp3"]
 size = Vector2(73, 76)
@@ -12,7 +12,7 @@ script = ExtResource("1_puvap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.61, 0.61)
-texture = ExtResource("1_0is8x")
+texture = ExtResource("2_puvap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)

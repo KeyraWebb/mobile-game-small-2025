@@ -481,7 +481,7 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_dvwgy")
 animation = &"Slide"
 autoplay = "Slide"
-frame_progress = 0.159478
+frame_progress = 0.100174
 
 [node name="Jump Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)

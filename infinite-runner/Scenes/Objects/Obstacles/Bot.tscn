@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://svo1l36gi8s3"]
+
+[ext_resource type="Script" uid="uid://dfu30q5m215xq" path="res://Scripts/obstacle.gd" id="1_vdvmt"]
+[ext_resource type="Texture2D" uid="uid://b7ccn4t0uo1s" path="res://Assets/Images/Obstacles/bot0_4.png" id="2_1bu4c"]
+[ext_resource type="Texture2D" uid="uid://7m3mfykujeg4" path="res://Assets/Images/Obstacles/bot_01.png" id="3_rioja"]
+[ext_resource type="Texture2D" uid="uid://b6fsjyg5mlqga" path="res://Assets/Images/Obstacles/bot_02.png" id="4_1cbfx"]
+[ext_resource type="Texture2D" uid="uid://deen8y0k5gp4f" path="res://Assets/Images/Obstacles/bot_03.png" id="5_8121g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bu4c"]
+radius = 37.5133
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg2my"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1bu4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rioja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1cbfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8121g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Test Obstacle" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_vdvmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("CircleShape2D_1bu4c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wg2my")
+autoplay = "default"
+frame_progress = 0.454963
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
