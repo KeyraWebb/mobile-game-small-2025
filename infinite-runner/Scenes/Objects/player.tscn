@@ -458,14 +458,16 @@ height = 108.0
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(112, 328)
 script = ExtResource("1_d51wf")
+slideLength = 250.0
+speedModifier = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(465, -4)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_p8o7k")
-minLength = 100
-allowance = 50
+minLength = 80
+allowance = 60
 
 [node name="Upright Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
