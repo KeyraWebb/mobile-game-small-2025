@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://pmnka8v6am3n" path="res://Scenes/Objects/Obstacles/rock_01.tscn" id="16_85qyi"]
 [ext_resource type="PackedScene" uid="uid://08wsn5clwryt" path="res://Scenes/Objects/Obstacles/rock_02.tscn" id="17_iivbl"]
 [ext_resource type="PackedScene" uid="uid://svo1l36gi8s3" path="res://Scenes/Objects/Obstacles/Bot.tscn" id="18_85qyi"]
-[ext_resource type="Script" path="res://Scripts/powerup_spawner.gd" id="21_exi56"]
+[ext_resource type="Script" uid="uid://dbq7datin0uin" path="res://Scripts/powerup_spawner.gd" id="21_exi56"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
@@ -180,7 +180,7 @@ script = ExtResource("9_x4fcm")
 one_shot = true
 
 [node name="Obstacle spawner" type="Node2D" parent="Obstacles"]
-position = Vector2(1318, 472)
+position = Vector2(1632, 472)
 script = ExtResource("5_gvbm6")
 frequency = 2
 initSpawn = 1
