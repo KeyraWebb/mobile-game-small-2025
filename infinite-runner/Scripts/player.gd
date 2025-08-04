@@ -13,8 +13,8 @@ extends CharacterBody2D
 @onready var slideSprite = $"Slide Sprite"
 @onready var gameOver = $"../CanvasLayer/Game Over"
 var sliding = false
-var currentSlide = 0
 var currentSpeed
+var slideStartPos
 
 var jumping = false
 
@@ -37,9 +37,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if sliding: #slide handling
-		if currentSlide > 0:
-			currentSlide = currentSlide - delta
-		else:
+		if self.global_position.x - slideStartPos.x >= slideLength:
 			DisableSlide()
 	
 	if uprightSprite.animation == "Fall" && jumping && is_on_floor():
@@ -64,17 +62,18 @@ func _on_swipeup():
 			DisableSlide()
 		
 func _on_swipedown():
-	velocity.y = -1 * JUMP_VELOCITY
-	
-	#switch appearance and collision
-	jumpCollider.disabled = true
-	slideCollider.disabled = false
-	uprightSprite.visible = false
-	slideSprite.visible = true
-	
-	#start slide
-	sliding = true
-	currentSlide = slideLength
+	if !sliding: #check if already sliding
+		velocity.y = -1 * JUMP_VELOCITY
+		
+		#switch appearance and collision
+		jumpCollider.disabled = true
+		slideCollider.disabled = false
+		uprightSprite.visible = false
+		slideSprite.visible = true
+		
+		#start slide
+		slideStartPos = self.global_position
+		sliding = true
 	
 #code for terminating the slide
 func DisableSlide():

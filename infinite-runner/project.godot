@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="void-run"
+config/name="voidrun"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+run/max_fps=60
+config/icon="uid://bxsp0k4sl4fgb"
 
 [autoload]
 
@@ -70,5 +71,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
