@@ -8,13 +8,57 @@
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_biw8p")
 script = ExtResource("2_bwvpm")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1280, 0)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background3" type="Sprite2D" parent="Node2D"]
+position = Vector2(1280, 0)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background4" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 720)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background5" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1280, 720)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background6" type="Sprite2D" parent="Node2D"]
+position = Vector2(1280, 720)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background7" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, -720)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background8" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1280, -720)
+texture = ExtResource("4_rbu5c")
+centered = false
+
+[node name="Background9" type="Sprite2D" parent="Node2D"]
+position = Vector2(1280, -720)
 texture = ExtResource("4_rbu5c")
 centered = false
 
@@ -69,11 +113,18 @@ text = "Credits
 "
 
 [node name="Settings Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1059.0
-offset_top = 615.0
-offset_right = 1208.0
-offset_bottom = 672.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -88.0
+offset_right = -47.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Settings
 "
