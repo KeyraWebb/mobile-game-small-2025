@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=24 format=3 uid="uid://b6p0ch7meljjh"]
 
 [ext_resource type="Script" uid="uid://bnfaugfm3ko2u" path="res://Scripts/gameManager.gd" id="1_1phco"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
@@ -23,9 +23,6 @@
 [ext_resource type="Script" path="res://Scripts/powerup_spawner.gd" id="21_exi56"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ymad"]
-size = Vector2(130, 130)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa3wp"]
 
@@ -78,13 +75,21 @@ layer = 60
 [node name="Tutorial" parent="CanvasLayer" instance=ExtResource("13_iivbl")]
 visible = false
 
-[node name="MenuButton" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(1191, 20)
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 19.0
+offset_right = 39.0
+offset_bottom = 147.0
+grow_horizontal = 0
 scale = Vector2(0.525, 0.525)
 texture_normal = ExtResource("5_o4kq2")
 texture_pressed = ExtResource("6_o46jq")
-shape = SubResource("RectangleShape2D_6ymad")
-action = "Pause"
+texture_hover = ExtResource("5_o4kq2")
+texture_disabled = ExtResource("5_o4kq2")
+texture_focused = ExtResource("5_o4kq2")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_wynk3")]
 visible = false
@@ -101,17 +106,43 @@ theme = ExtResource("8_aylbi")
 theme_override_font_sizes/font_size = 40
 text = "Score: 00000000"
 
-[node name="Up Button" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="Up Button" type="TextureButton" parent="CanvasLayer"]
 visible = false
-position = Vector2(1129, 413)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -307.0
+offset_right = -23.0
+offset_bottom = -179.0
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = ExtResource("11_nb51f")
-action = "Up"
+texture_pressed = ExtResource("11_nb51f")
+texture_hover = ExtResource("11_nb51f")
+texture_disabled = ExtResource("11_nb51f")
+texture_focused = ExtResource("11_nb51f")
 
-[node name="Down Button" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="Down Button" type="TextureButton" parent="CanvasLayer"]
 visible = false
-position = Vector2(1129, 554)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -166.0
+offset_right = -23.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = ExtResource("12_nnt18")
-action = "Down"
+texture_pressed = ExtResource("12_nnt18")
+texture_hover = ExtResource("12_nnt18")
+texture_disabled = ExtResource("12_nnt18")
+texture_focused = ExtResource("12_nnt18")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
@@ -187,6 +218,11 @@ one_shot = true
 
 [node name="Obstacle holder" type="Node2D" parent="."]
 
+[connection signal="pressed" from="CanvasLayer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/Up Button" to="." method="_on_up_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/Up Button" to="." method="_on_up_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/Down Button" to="." method="_on_down_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/Down Button" to="." method="_on_down_button_button_up"]
 [connection signal="timeout" from="Obstacles/SpawnTimer" to="Obstacles/Obstacle spawner" method="Spawn"]
 [connection signal="area_entered" from="Obstacles/Despawn Zone" to="Obstacles/Obstacle spawner" method="_on_despawn_zone_area_entered"]
 [connection signal="timeout" from="Obstacles/Powerup Spawner/Powerup Timer" to="Obstacles/Powerup Spawner" method="_on_powerup_timer_timeout"]
