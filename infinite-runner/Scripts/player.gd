@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var uprightSprite = $"Upright Sprite"
 @onready var slideSprite = $"Slide Sprite"
 @onready var gameOver = $"../CanvasLayer/Game Over"
+@onready var gameManager = $".."
+
 var sliding = false
 var currentSpeed
 var slideStartPos
@@ -90,3 +92,6 @@ func Hit():
 func _on_upright_sprite_animation_finished() -> void:
 	if uprightSprite.animation == "Jump":
 		uprightSprite.play("Fall")
+		
+func CollectCoin():
+	gameManager.AddCoin()

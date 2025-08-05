@@ -1,10 +1,13 @@
 extends Node2D
 
 var score = 0
+var coins = 0
+
 @export var scoreMagnifier = 1000
 @onready var scoreLabel = $CanvasLayer/Score
 @onready var upButton = $"CanvasLayer/Up Button"
 @onready var downButton = $"CanvasLayer/Down Button"
+@onready var coinLabel = $CanvasLayer/Coins
 
 var pauseAction = InputEventAction.new()
 var upAction = InputEventAction.new()
@@ -44,3 +47,8 @@ func _on_down_button_button_down() -> void:
 func _on_down_button_button_up() -> void:
 	downAction.pressed = false
 	Input.parse_input_event(downAction)
+	
+func AddCoin():
+	coins += 1
+	coinLabel.text = str(coins)
+	
