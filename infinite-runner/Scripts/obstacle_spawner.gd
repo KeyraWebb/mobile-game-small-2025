@@ -17,8 +17,14 @@ func _ready() -> void:
 	Spawn()
 
 func Spawn() -> void:
-	var select = randi_range(0, spawnPoints.size() - 1)
-	spawnPoints[select].spawn(obstacleHolder)
+	var spawnFound = false
+	
+	while !spawnFound:
+		var select = randi_range(0, spawnPoints.size() - 1)
+		if spawnPoints[select].checkAvailable():
+			spawnPoints[select].spawnObstacle(obstacleHolder)
+			spawnFound = true
+		
 	if spawnCount >= 0:
 		spawnTimer.start(frequency)
 		spawnCount -= 1

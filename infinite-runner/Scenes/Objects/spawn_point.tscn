@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1barp32ltdle"]
+
+[ext_resource type="Script" uid="uid://c3w5fi0km4nuv" path="res://Scripts/spawn_point.gd" id="1_slewm"]
+[ext_resource type="PackedScene" uid="uid://pmnka8v6am3n" path="res://Scenes/Objects/Obstacles/rock_01.tscn" id="2_2wkal"]
+[ext_resource type="PackedScene" uid="uid://08wsn5clwryt" path="res://Scenes/Objects/Obstacles/rock_02.tscn" id="3_xh08l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nysuf"]
+size = Vector2(47, 20)
+
+[node name="Spawn Point" type="Node2D"]
+script = ExtResource("1_slewm")
+obstacles = Array[PackedScene]([ExtResource("2_2wkal"), ExtResource("3_xh08l")])
+
+[node name="Sensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensor"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_nysuf")

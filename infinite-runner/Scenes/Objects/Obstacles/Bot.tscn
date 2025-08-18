@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://svo1l36gi8s3"]
+[gd_scene load_steps=8 format=3 uid="uid://svo1l36gi8s3"]
 
 [ext_resource type="Script" uid="uid://dfu30q5m215xq" path="res://Scripts/obstacle.gd" id="1_vdvmt"]
 [ext_resource type="Texture2D" uid="uid://b7ccn4t0uo1s" path="res://Assets/Images/Obstacles/bot0_4.png" id="2_1bu4c"]
 [ext_resource type="Texture2D" uid="uid://7m3mfykujeg4" path="res://Assets/Images/Obstacles/bot_01.png" id="3_rioja"]
 [ext_resource type="Texture2D" uid="uid://b6fsjyg5mlqga" path="res://Assets/Images/Obstacles/bot_02.png" id="4_1cbfx"]
 [ext_resource type="Texture2D" uid="uid://deen8y0k5gp4f" path="res://Assets/Images/Obstacles/bot_03.png" id="5_8121g"]
-[ext_resource type="PackedScene" uid="uid://cc4b0o8pkj4tk" path="res://Scenes/Objects/Collectables/coin.tscn" id="6_rioja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bu4c"]
 radius = 37.5133
@@ -43,16 +42,5 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wg2my")
 autoplay = "default"
 frame_progress = 0.454963
-
-[node name="Coins" type="Node2D" parent="."]
-
-[node name="Coin" parent="Coins" instance=ExtResource("6_rioja")]
-position = Vector2(0, 91)
-
-[node name="Coin2" parent="Coins" instance=ExtResource("6_rioja")]
-position = Vector2(55, 90)
-
-[node name="Coin3" parent="Coins" instance=ExtResource("6_rioja")]
-position = Vector2(-55, 93)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
