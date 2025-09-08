@@ -66,7 +66,7 @@ horizontal_alignment = 1
 [node name="Label4" type="Label" parent="PanelContainer/BoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Protest Revolution Font - Google Fonts"
+text = "Protest Revolution Font - Designed by Octavio Pardo"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/BoxContainer"]

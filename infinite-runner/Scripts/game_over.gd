@@ -3,6 +3,7 @@ extends PanelContainer
 @onready var gameManager = $"../.."
 @onready var finalScoreLabel = $"VBoxContainer/Final Score"
 @onready var highScoreLabel = $"VBoxContainer/High Score"
+@onready var coinsLabel = $"VBoxContainer/Coins Collected"
 
 func gameOver():
 	finalScoreLabel.text = "Final score: %.0f" % gameManager.score
@@ -11,6 +12,7 @@ func gameOver():
 		Global.saveGame()
 		
 	highScoreLabel.text = "HighScore: %.0f" % Global.HighScore
+	coinsLabel.text = "Coins Collected: %.0f" % gameManager.coins
 	
 	get_tree().paused = true
 	self.visible = true
