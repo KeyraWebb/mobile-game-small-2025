@@ -182,6 +182,7 @@ position = Vector2(1632, 472)
 script = ExtResource("5_gvbm6")
 frequency = 2
 initSpawn = 1
+coinSpawnGap = 2000
 
 [node name="Spawn bottom" parent="Obstacles/Obstacle spawner" instance=ExtResource("17_85qyi")]
 position = Vector2(0, -19)
