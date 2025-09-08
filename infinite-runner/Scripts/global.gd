@@ -6,6 +6,7 @@ extends Node
 var HighScore : int
 var AccessMode : bool
 var FirstTime : bool
+var Coins : int
 
 #gets all relevant global data and puts it into json for saving
 func saveGlobal():
@@ -13,7 +14,8 @@ func saveGlobal():
 		"global" : true,
 		"HighScore" : HighScore,
 		"AccessMode" : AccessMode,
-		"FirstTime" : FirstTime
+		"FirstTime" : FirstTime,
+		"Coins" : Coins
 	}
 	return saveDict
 
@@ -55,11 +57,14 @@ func loadGame():
 				if i == "global":
 					continue
 				self.set(i, node_data[i])
+	
+	print(Coins)
 				
 func Reset():
 	HighScore = 0
 	AccessMode = false
 	FirstTime = true
+	Coins = 0
 	saveGame()
 	
 		

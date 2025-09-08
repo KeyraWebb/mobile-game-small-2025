@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfh5dlre2y7l0"]
+
+[ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="1_88yrp"]
+[ext_resource type="Texture2D" uid="uid://0rur5qdn0mjx" path="res://Assets/Images/coin.png" id="2_md785"]
+
+[node name="Coins" type="Label"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -324.0
+offset_top = 27.0
+offset_right = -172.0
+offset_bottom = 76.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_88yrp")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 9.0
+offset_top = -8.0
+offset_right = 137.0
+offset_bottom = 120.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_md785")

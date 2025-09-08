@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bp5f5g4p0u5rs" path="res://Assets/Images/up arrow.png" id="11_nb51f"]
 [ext_resource type="Texture2D" uid="uid://usdh44innev2" path="res://Assets/Images/down arrow.png" id="12_nnt18"]
 [ext_resource type="PackedScene" uid="uid://hsbhl5e2exx1" path="res://Scenes/tutorial.tscn" id="13_iivbl"]
-[ext_resource type="Texture2D" uid="uid://0rur5qdn0mjx" path="res://Assets/Images/coin.png" id="14_exi56"]
+[ext_resource type="PackedScene" uid="uid://bfh5dlre2y7l0" path="res://Scenes/Objects/coinLabel.tscn" id="14_iivbl"]
 [ext_resource type="PackedScene" uid="uid://b1barp32ltdle" path="res://Scenes/Objects/spawn_point.tscn" id="17_85qyi"]
 [ext_resource type="PackedScene" uid="uid://svo1l36gi8s3" path="res://Scenes/Objects/Obstacles/Bot.tscn" id="18_85qyi"]
 [ext_resource type="Script" uid="uid://dbq7datin0uin" path="res://Scripts/powerup_spawner.gd" id="21_exi56"]
@@ -142,34 +142,7 @@ texture_hover = ExtResource("12_nnt18")
 texture_disabled = ExtResource("12_nnt18")
 texture_focused = ExtResource("12_nnt18")
 
-[node name="Coins" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -324.0
-offset_top = 27.0
-offset_right = -172.0
-offset_bottom = 76.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme = ExtResource("8_aylbi")
-theme_override_font_sizes/font_size = 40
-text = "0"
-horizontal_alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Coins"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 9.0
-offset_top = -8.0
-offset_right = 137.0
-offset_bottom = 120.0
-grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("14_exi56")
+[node name="Coins" parent="CanvasLayer" instance=ExtResource("14_iivbl")]
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("9_x4fcm")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0h0jdyeyb1ev"]
+[gd_scene load_steps=7 format=3 uid="uid://d0h0jdyeyb1ev"]
 
 [ext_resource type="Theme" uid="uid://c0j6fiiejc40k" path="res://Assets/Themes/MenuTheme.tres" id="1_biw8p"]
 [ext_resource type="Script" uid="uid://bf1il0ofnpgys" path="res://Scripts/main_menu.gd" id="2_bwvpm"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="4_rbu5c"]
 [ext_resource type="PackedScene" uid="uid://bx3hlb8ooywkt" path="res://Scenes/settings.tscn" id="5_n45e2"]
 [ext_resource type="PackedScene" uid="uid://ksibfqaog74i" path="res://Scenes/credits.tscn" id="5_vbea3"]
+[ext_resource type="PackedScene" uid="uid://bfh5dlre2y7l0" path="res://Scenes/Objects/coinLabel.tscn" id="6_opfnp"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -136,6 +137,13 @@ layout_mode = 1
 [node name="Settings" parent="." instance=ExtResource("5_n45e2")]
 visible = false
 layout_mode = 1
+
+[node name="Coins" parent="." instance=ExtResource("6_opfnp")]
+layout_mode = 1
+offset_left = -249.0
+offset_top = 25.0
+offset_right = -97.0
+offset_bottom = 74.0
 
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Credits Button" to="." method="_on_credits_button_pressed"]
