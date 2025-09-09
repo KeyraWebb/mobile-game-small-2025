@@ -1,8 +1,16 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c0j6fiiejc40k"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c0j6fiiejc40k"]
 
 [ext_resource type="FontFile" uid="uid://c1x620yd1raqo" path="res://Assets/Themes/Fonts/Protest_Revolution/ProtestRevolution-Regular.ttf" id="1_1jtem"]
 [ext_resource type="StyleBox" uid="uid://x1ynojkaj1d1" path="res://Assets/Themes/ButtonStyle.tres" id="2_qa4oh"]
 [ext_resource type="StyleBox" uid="uid://dtrq2cx5slrfp" path="res://Assets/Themes/PanelStyle.tres" id="3_1fy6i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53a43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34ca5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rjwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqprl"]
 
 [resource]
 default_font = ExtResource("1_1jtem")
@@ -12,5 +20,9 @@ Button/styles/focus = ExtResource("2_qa4oh")
 Button/styles/hover = ExtResource("2_qa4oh")
 Button/styles/normal = ExtResource("2_qa4oh")
 Button/styles/pressed = ExtResource("2_qa4oh")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_53a43")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_34ca5")
+ItemList/styles/selected = SubResource("StyleBoxEmpty_3rjwb")
+ItemList/styles/selected_focus = SubResource("StyleBoxEmpty_xqprl")
 Label/fonts/font = ExtResource("1_1jtem")
 PanelContainer/styles/panel = ExtResource("3_1fy6i")
