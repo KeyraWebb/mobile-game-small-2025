@@ -68,7 +68,7 @@ position = Vector2(0, -14)
 shape = SubResource("WorldBoundaryShape2D_eoas8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 60
+layer = 40
 
 [node name="Tutorial" parent="CanvasLayer" instance=ExtResource("13_iivbl")]
 visible = false
@@ -94,6 +94,7 @@ visible = false
 
 [node name="Game Over" parent="CanvasLayer" instance=ExtResource("8_rfjv2")]
 visible = false
+z_index = 1
 
 [node name="Score" type="Label" parent="CanvasLayer"]
 offset_left = 30.0

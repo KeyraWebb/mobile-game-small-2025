@@ -7,7 +7,7 @@ extends Control
 var currLifeCost
 
 func _ready():
-	currLifeCost = updateLifeCost()
+	updateLifeCost()
 
 func _on_exit_pressed() -> void:
 	self.visible = !self.visible
