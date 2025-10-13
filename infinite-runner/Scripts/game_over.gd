@@ -1,9 +1,10 @@
-extends PanelContainer
+extends Control
 
 @onready var gameManager = $"../.."
-@onready var finalScoreLabel = $"VBoxContainer/Final Score"
-@onready var highScoreLabel = $"VBoxContainer/High Score"
-@onready var coinsLabel = $"VBoxContainer/Coins Collected"
+@onready var finalScoreLabel = $"PanelContainer/VBoxContainer/Final Score"
+@onready var highScoreLabel = $"PanelContainer/VBoxContainer/High Score"
+@onready var coinsLabel = $"PanelContainer/VBoxContainer/Coins Collected"
+@onready var upgrades = $Upgrades
 
 func gameOver():
 	finalScoreLabel.text = "Final score: %.0f" % gameManager.score
@@ -27,3 +28,7 @@ func _on_play_again_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+
+func _on_upgrades_pressed() -> void:
+	upgrades.visible = !upgrades.visible

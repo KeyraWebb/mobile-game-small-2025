@@ -7,6 +7,7 @@ var HighScore : int
 var AccessMode : bool
 var FirstTime : bool
 var Coins : int
+var Lives : int
 
 #gets all relevant global data and puts it into json for saving
 func saveGlobal():
@@ -15,7 +16,8 @@ func saveGlobal():
 		"HighScore" : HighScore,
 		"AccessMode" : AccessMode,
 		"FirstTime" : FirstTime,
-		"Coins" : Coins
+		"Coins" : Coins,
+		"Lives" : Lives
 	}
 	return saveDict
 
@@ -65,6 +67,7 @@ func Reset():
 	AccessMode = false
 	FirstTime = true
 	Coins = 0
+	Lives = 0
 	saveGame()
 	
 		
