@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 @onready var uprightSprite = $"Upright Sprite"
 @onready var slideSprite = $"Slide Sprite"
-@onready var gameOver = $"../CanvasLayer/Game Over"
+@onready var lifeManager = $"../CanvasLayer/MarginContainer/life container"
 @onready var gameManager = $".."
 
 var sliding = false
@@ -87,7 +87,7 @@ func DisableSlide():
 	uprightSprite.play("Walk")
 	
 func Hit():
-	gameOver.gameOver()
+	lifeManager.LifeLost()
 
 func _on_upright_sprite_animation_finished() -> void:
 	if uprightSprite.animation == "Jump":
