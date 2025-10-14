@@ -158,6 +158,7 @@ offset_top = -149.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -165,11 +166,13 @@ theme_override_constants/margin_bottom = 10
 
 [node name="life container" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 script = ExtResource("15_exi56")
 
 [node name="LifeCounter" parent="CanvasLayer/MarginContainer/life container" instance=ExtResource("16_7t8sx")]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("9_x4fcm")
