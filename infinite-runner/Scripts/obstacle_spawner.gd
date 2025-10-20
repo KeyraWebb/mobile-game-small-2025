@@ -3,6 +3,7 @@ extends Node2D
 @export var frequency : int
 @export var initSpawn = 5
 @export var maxCoins = 5
+@export var minCoins = 3 
 @export var coinSpawnGap = 500
 
 @onready var obstacleHolder = $"../../Obstacle holder"
@@ -46,7 +47,7 @@ func _on_despawn_zone_area_entered(area: Area2D) -> void:
 	
 func SpawnCoins():
 	var spawnFound = false
-	var coinCount = randi_range(1, maxCoins)
+	var coinCount = randi_range(minCoins, maxCoins)
 	
 	while !spawnFound:
 		var select = randi_range(0, spawnPoints.size() - 1)

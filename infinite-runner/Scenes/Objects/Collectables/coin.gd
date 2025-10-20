@@ -2,6 +2,6 @@ extends Area2D
 @onready var collider = $CollisionShape2D
 
 func _on_body_entered(body: Node2D) -> void:
+	print("bye")
 	body.CollectCoin()
-	collider.set_deferred("disabled", true)
-	self.visible = false
+	self.queue_free()
