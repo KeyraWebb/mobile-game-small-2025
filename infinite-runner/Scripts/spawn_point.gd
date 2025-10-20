@@ -26,12 +26,13 @@ func spawnObstacle(parent):
 func spawnCoin(parent):
 	var newCoin = coin.instantiate()
 	newCoin.set_deferred("global_position", self.global_position)
-	parent.call_deferred("add_child", newCoin)
 	prevPos = global_position
 	
 	
-func spawnPowerup(parent):
-	pass
+func spawnPowerup(parent, powerup):
+	var newPowerup = powerup.instantiate()
+	newPowerup.set_deferred("global_position", self.global_position)
+	parent.call_deferred("add_child", newPowerup)
 
 func checkAvailable():
 	var collision = sensor.get_overlapping_areas()

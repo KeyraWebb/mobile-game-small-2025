@@ -1,9 +1,10 @@
-[gd_scene load_steps=68 format=3 uid="uid://bsdpfv0ogayj8"]
+[gd_scene load_steps=69 format=3 uid="uid://bsdpfv0ogayj8"]
 
 [ext_resource type="Script" uid="uid://dh1d8e54ta4pw" path="res://Scripts/player.gd" id="1_d51wf"]
 [ext_resource type="Script" uid="uid://bgiohf7bllssx" path="res://Scripts/camera.gd" id="2_p8o7k"]
 [ext_resource type="Texture2D" uid="uid://oowixihto302" path="res://Assets/Images/Player/Jump_helmetgirl.png" id="4_xbekk"]
 [ext_resource type="Texture2D" uid="uid://b6o7884n5ky2i" path="res://Assets/Images/Player/Walk_helmetgirl.png" id="5_5uqce"]
+[ext_resource type="Texture2D" uid="uid://0rur5qdn0mjx" path="res://Assets/Images/coin.png" id="5_xbekk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6i5h"]
 atlas = ExtResource("4_xbekk")
@@ -494,4 +495,14 @@ position = Vector2(0, 36)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_e3hpu")
 
+[node name="PowerupTimer" type="Timer" parent="."]
+
+[node name="PowerupDisplay" type="Node2D" parent="."]
+
+[node name="sheild" type="Sprite2D" parent="PowerupDisplay"]
+visible = false
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("5_xbekk")
+
 [connection signal="animation_finished" from="Upright Sprite" to="." method="_on_upright_sprite_animation_finished"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]

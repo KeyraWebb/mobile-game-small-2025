@@ -13,10 +13,15 @@ extends CharacterBody2D
 @onready var slideSprite = $"Slide Sprite"
 @onready var lifeManager = $"../CanvasLayer/MarginContainer/life container"
 @onready var gameManager = $".."
+@onready var powerTimer = $PowerupTimer
+
+#powerup imagery
+@onready var sheildDisplay = $PowerupDisplay/sheild
 
 var sliding = false
 var currentSpeed
 var slideStartPos
+var sheilded = false
 
 var jumping = false
 
@@ -87,7 +92,12 @@ func DisableSlide():
 	uprightSprite.play("Walk")
 	
 func Hit():
-	lifeManager.LifeLost()
+	if sheilded:
+		sheilded = false
+		sheildDisplay.visible = false
+		powerTimer.stop()
+	else:
+		lifeManager.LifeLost()
 
 func _on_upright_sprite_animation_finished() -> void:
 	if uprightSprite.animation == "Jump":
@@ -95,3 +105,8 @@ func _on_upright_sprite_animation_finished() -> void:
 		
 func CollectCoin():
 	gameManager.AddCoin()
+
+
+func _on_powerup_timer_timeout() -> void:
+	sheilded = false
+	sheildDisplay.visible = false

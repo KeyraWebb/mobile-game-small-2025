@@ -21,5 +21,5 @@ func LifeLost():
 		gameOver.gameOver()
 	else:
 		currLives -= 1
-		lifeCounterList[currLives].queue_free()
+		lifeCounterList[currLives].queue_free() 
 	

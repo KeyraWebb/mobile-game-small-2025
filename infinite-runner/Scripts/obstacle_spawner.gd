@@ -6,6 +6,7 @@ extends Node2D
 @export var coinSpawnGap = 500
 
 @onready var obstacleHolder = $"../../Obstacle holder"
+@onready var coinHolder = $"../../nonObstacle holder"
 @onready var spawnTimer = $"../SpawnTimer"
 
 var spawnPoints : Array
@@ -26,7 +27,7 @@ func _process(delta: float) -> void:
 
 func Spawn() -> void:
 	var spawnFound = false
-	
+
 	while !spawnFound:
 		var select = randi_range(0, spawnPoints.size() - 1)
 		if spawnPoints[select].checkAvailable():
@@ -39,7 +40,9 @@ func Spawn() -> void:
 
 func _on_despawn_zone_area_entered(area: Area2D) -> void:
 	area.queue_free()
-	Spawn()
+	
+	if area.get_parent() == obstacleHolder:
+		Spawn()
 	
 func SpawnCoins():
 	var spawnFound = false
@@ -48,7 +51,7 @@ func SpawnCoins():
 	while !spawnFound:
 		var select = randi_range(0, spawnPoints.size() - 1)
 		if spawnPoints[select].checkAvailable():
-			spawnPoints[select].SpawnCoins(coinCount, obstacleHolder)
+			spawnPoints[select].SpawnCoins(coinCount, coinHolder)
 			spawnFound = true
 			
 	prevPos = global_position
