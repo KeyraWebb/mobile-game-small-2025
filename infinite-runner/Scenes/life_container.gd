@@ -1,17 +1,18 @@
 extends HBoxContainer
 
 var lifeCounter = load("res://Scenes/Objects/life_counter.tscn")
-var lives = Global.Lives
 var currLives
 var lifeCounterList
 
 @onready var gameOver = $"../../Game Over"
 
 func _ready() -> void:
-	currLives = lives
-	for life in range(lives - 1):
+	currLives = Global.Lives
+	print(currLives)
+	for life in range(currLives):
 		var newLife = lifeCounter.instantiate()
 		self.add_child(newLife)
+		print(newLife)
 	
 	lifeCounterList = get_children()
 	

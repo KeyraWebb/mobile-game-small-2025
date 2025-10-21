@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0u7s1a0tx66e"]
 
-[ext_resource type="Texture2D" uid="uid://di76lu3eh2sl1" path="res://icon.svg" id="1_0r70c"]
+[ext_resource type="Texture2D" uid="uid://bdhpsayrj35gh" path="res://Assets/Images/life icon.png" id="1_0r70c"]
 
 [node name="LifeCounter" type="TextureRect"]
 texture = ExtResource("1_0r70c")
-expand_mode = 3
