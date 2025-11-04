@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6p0ch7meljjh"]
+[gd_scene load_steps=24 format=3 uid="uid://b6p0ch7meljjh"]
 
 [ext_resource type="Script" uid="uid://bnfaugfm3ko2u" path="res://Scripts/gameManager.gd" id="1_1phco"]
 [ext_resource type="Texture2D" uid="uid://ds4wisurrs1ul" path="res://Assets/Images/Glitchvoid BG.png" id="1_6t2ij"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://b1barp32ltdle" path="res://Scenes/Objects/spawn_point.tscn" id="17_85qyi"]
 [ext_resource type="PackedScene" uid="uid://svo1l36gi8s3" path="res://Scenes/Objects/Obstacles/Bot.tscn" id="18_85qyi"]
 [ext_resource type="Script" uid="uid://dbq7datin0uin" path="res://Scripts/powerup_spawner.gd" id="21_exi56"]
-[ext_resource type="PackedScene" uid="uid://b6wr146uw4ftq" path="res://Scenes/Objects/Collectables/shieldPowerup.tscn" id="22_7t8sx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoas8"]
 
@@ -220,7 +219,6 @@ script = ExtResource("21_exi56")
 minTime = 20.0
 maxTime = 40.0
 waitTime = 30.0
-powerups = Array[PackedScene]([ExtResource("22_7t8sx")])
 
 [node name="Powerup Timer" type="Timer" parent="Obstacles/Powerup Spawner"]
 one_shot = true

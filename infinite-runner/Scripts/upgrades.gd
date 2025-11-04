@@ -1,15 +1,21 @@
 extends Control
 
 @export var lifeBaseCost : int
+@export var lifePrices = [100,500,1000,2000,5000]
+@export var shieldPowerupCost = 100
 
 @onready var lifeCostText = $"PanelContainer/VBoxContainer/Life Upgrade/HBoxContainer/Coins"
 @onready var coinTotal = $Coins
+@onready var shieldButton = $"PanelContainer/VBoxContainer/Shield Upgrade"
+@onready var shieldButtonCostText = $"PanelContainer/VBoxContainer/Shield Upgrade/HBoxContainer/Coins"
 
 var currLifeCost
-var lifePrices = [100,500,1000,2000,5000]
+
 
 func _ready():
 	updateLifeCost()
+	if Global.ShieldPowerup:
+		shieldButton.visible = false
 
 func _on_exit_pressed() -> void:
 	self.visible = !self.visible
@@ -23,7 +29,7 @@ func updateLifeCost():
 		lifeCostText.text = "SOLD OUT"
 
 func _on_life_upgrade_pressed() -> void:
-	if currLifeCost > 0 && Global.Coins > currLifeCost:
+	if currLifeCost > 0 && Global.Coins >= currLifeCost:
 		Global.Coins -= currLifeCost
 		Global.Lives += 1
 		updateLifeCost()
@@ -36,3 +42,11 @@ func updateCoinDisplay():
 func _on_visibility_changed() -> void:
 	if self.visible:
 		updateCoinDisplay()
+
+func _on_shield_upgrade_pressed() -> void:
+	if Global.Coins >= shieldPowerupCost:
+		Global.Coins -= shieldPowerupCost
+		Global.ShieldPowerup = true
+		shieldButton.visible = false
+		updateCoinDisplay()
+		Global.saveGame()

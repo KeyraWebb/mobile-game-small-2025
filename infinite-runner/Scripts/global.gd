@@ -8,6 +8,7 @@ var AccessMode : bool
 var FirstTime : bool
 var Coins : int
 var Lives : int
+var ShieldPowerup : bool
 
 #gets all relevant global data and puts it into json for saving
 func saveGlobal():
@@ -68,6 +69,7 @@ func Reset():
 	FirstTime = true
 	Coins = 0
 	Lives = 0
+	ShieldPowerup = false
 	saveGame()
 	
 		
