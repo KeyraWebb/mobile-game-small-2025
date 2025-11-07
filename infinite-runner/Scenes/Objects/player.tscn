@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bgiohf7bllssx" path="res://Scripts/camera.gd" id="2_p8o7k"]
 [ext_resource type="Texture2D" uid="uid://oowixihto302" path="res://Assets/Images/Player/Jump_helmetgirl.png" id="4_xbekk"]
 [ext_resource type="Texture2D" uid="uid://b6o7884n5ky2i" path="res://Assets/Images/Player/Walk_helmetgirl.png" id="5_5uqce"]
-[ext_resource type="Texture2D" uid="uid://0rur5qdn0mjx" path="res://Assets/Images/coin.png" id="5_xbekk"]
+[ext_resource type="Texture2D" uid="uid://8rxvk645wjs4" path="res://Assets/Images/shield.png" id="5_xbekk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6i5h"]
 atlas = ExtResource("4_xbekk")
