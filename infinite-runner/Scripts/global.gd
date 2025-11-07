@@ -9,6 +9,7 @@ var FirstTime : bool
 var Coins : int
 var Lives : int
 var ShieldPowerup : bool
+var ShieldTimerUpgrades : int
 
 #gets all relevant global data and puts it into json for saving
 func saveGlobal():
@@ -18,10 +19,13 @@ func saveGlobal():
 		"AccessMode" : AccessMode,
 		"FirstTime" : FirstTime,
 		"Coins" : Coins,
-		"Lives" : Lives
+		"Lives" : Lives,
+		"ShieldPowerup" : ShieldPowerup,
+		"ShieldTimerUpgrades" : ShieldTimerUpgrades
 	}
 	return saveDict
 
+#runs a save by running all save methods
 func saveGame():
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var data = saveGlobal()
@@ -60,9 +64,9 @@ func loadGame():
 				if i == "global":
 					continue
 				self.set(i, node_data[i])
-	
-	print(Coins)
-				
+
+
+#Resets save to defaults		
 func Reset():
 	HighScore = 0
 	AccessMode = false
@@ -70,6 +74,7 @@ func Reset():
 	Coins = 0
 	Lives = 0
 	ShieldPowerup = false
+	ShieldTimerUpgrades = 0
 	saveGame()
 	
 		

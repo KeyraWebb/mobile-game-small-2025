@@ -130,6 +130,40 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "100"
 
+[node name="Shield Timer Upgrade" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Shield Timer Upgrade"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -24.5
+offset_right = 119.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Shield Timer Upgrade/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "SHIELD TIMER"
+horizontal_alignment = 1
+
+[node name="Coins" parent="PanelContainer/VBoxContainer/Shield Timer Upgrade/HBoxContainer" instance=ExtResource("2_mstou")]
+layout_mode = 2
+text = "100"
+
 [node name="Exit" type="Button" parent="."]
 z_index = 100
 layout_mode = 1
@@ -157,6 +191,7 @@ offset_bottom = 81.0
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Life Upgrade" to="." method="_on_life_upgrade_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Shield Upgrade" to="." method="_on_shield_upgrade_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Shield Timer Upgrade" to="." method="_on_shield_timer_upgrade_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 
 [editable path="Coins"]

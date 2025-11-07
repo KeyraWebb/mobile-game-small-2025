@@ -19,9 +19,8 @@ func _ready() -> void:
 		powerups.append(load("res://Scenes/Objects/Collectables/shieldPowerup.tscn"))
 
 func _on_powerup_timer_timeout() -> void:
-	print("SPAWN?")
+	
 	if !powerups.is_empty():
-		print("SPAWN!")
 		var newTime = randi_range(minTime,maxTime)
 		timer.start(newTime)
 		
